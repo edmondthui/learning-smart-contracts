@@ -73,6 +73,17 @@ App = {
 
     },
 
+    createTask: async () => {
+        App.toggleLoading(true);
+        const content = $('#newTask').val();
+        await App.todoList.createTask(content, {from: App.account})
+        .catch(() => {
+            console.error(e.message);
+            return;
+        });
+        window.location.reload();
+    },
+
     toggleLoading: (boolean) => {
         App.loading = boolean;
         const loader = $('#loader');
