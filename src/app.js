@@ -48,15 +48,16 @@ App = {
         const taskCount = await App.todoList.taskCount();
         const taskTemplate = $('.taskTemplate');
 
-        for (let i = 0 ; i < taskCount; i++) {
+        for (let i = 1 ; i <= taskCount; i++) {
             // fetching task data from the blockchain for each task
             const task = await App.todoList.tasks(i);
+            console.log(task);
             const taskId = task[0].toNumber();
             const taskContent = task[1];
             const taskCompleted = task[2];
 
             const newTaskTemplate = taskTemplate.clone();
-            newTaskTemplate.find('content').html(taskContent);
+            newTaskTemplate.find('.content').html(taskContent);
             newTaskTemplate.find('input')
             .prop('name', taskId)
             .prop('checked', taskCompleted)
