@@ -2,6 +2,9 @@ module.exports = {
   entry: [
     './src/app.js',
   ],
+  externals: {
+    truffleContract: 'truffle-contract',
+  },
   output: {
     path: __dirname,
     publicPath: '/',
