@@ -1,14 +1,18 @@
 {
-  "name": "learning-smart-contracts",
+  "name": "my-webpack-project",
   "version": "1.0.0",
-  "description": "Project to learn smart contracts",
+  "description": "My webpack project",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -21,6 +25,7 @@
   },
   "homepage": "https://github.com/edmondthui/learning-smart-contracts#readme",
   "dependencies": {
+    "babel-loader": "^8.2.3",
     "bootstrap": "^4.1.3",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
@@ -30,6 +35,11 @@
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "truffle": "^5.0.2",
-    "truffle-contract": "^4.0.31"
-  }
+    "truffle-contract": "^4.0.31",
+    "webpack": "^5.70.0"
+  },
+  "devDependencies": {
+    "@webpack-cli/generators": "^2.4.2"
+  },
+  "keywords": []
 }
