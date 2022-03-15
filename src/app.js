@@ -1,5 +1,3 @@
-import TruffleContract from 'truffle-contract';
-
 App = {
     loading: false,
     contracts: {},
