@@ -32,7 +32,7 @@ App = {
         .catch(() => {
             console.log("Failed to get contract")
             const loader = $('#loader');
-            loader.html("Failed to load contract. Please download Ganache and deploy this smart contract to your local test network to demo!")
+            loader.find('text-center').html("Failed to load contract. Please download Ganache and deploy this smart contract to your local test network to demo!")
         });
     },
 
