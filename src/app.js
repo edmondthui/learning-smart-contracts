@@ -24,14 +24,14 @@ App = {
     },
 
     loadContract: async() => {
-        const todoList = await $.getJSON('build/contracts/TodoList.json'); // inside bs-config file we expose build contract directory so we have access to this file
+        const todoList = await $.getJSON('build/contracts/TodoList.json') // inside bs-config file we expose build contract directory so we have access to this file
+        .catch(() => {
+            console.log("Failed to load contract")
+        })
         console.log(todoList);
         App.contracts.TodoList = TruffleContract(todoList);
         App.contracts.TodoList.setProvider(window.web3.currentProvider)
         App.todoList = await App.contracts.TodoList.deployed()
-        .catch(() => {
-            console.log("Failed to get contract")
-        });
     },
 
     render: async() => {
