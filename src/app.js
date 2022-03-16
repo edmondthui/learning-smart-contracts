@@ -24,14 +24,16 @@ App = {
     },
 
     loadContract: async() => {
-        const todoList = await $.getJSON('build/contracts/TodoList.json') // inside bs-config file we expose build contract directory so we have access to this file
-        .catch(() => {
-            console.log("Failed to load contract")
-        })
+        const todoList = await $.getJSON('build/contracts/TodoList.json'); // inside bs-config file we expose build contract directory so we have access to this file
         console.log(todoList);
         App.contracts.TodoList = TruffleContract(todoList);
         App.contracts.TodoList.setProvider(window.web3.currentProvider)
         App.todoList = await App.contracts.TodoList.deployed()
+        .catch(() => {
+            console.log("Failed to get contract")
+            const loader = $('#loader');
+            loader.html("Failed to load contract. Please download Ganache and deploy this smart contract to your local test network to demo!")
+        });
     },
 
     render: async() => {
